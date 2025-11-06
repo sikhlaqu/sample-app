@@ -2,7 +2,7 @@
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
-  name: vm-workload-1
+  name: vm-workload-2
 spec:
   running: true
   template:
@@ -46,17 +46,10 @@ spec:
         - name: default
           pod: {}
       terminationGracePeriodSeconds: 180
-      accessCredentials:
-        - sshPublicKey:
-            source:
-              secret:
-                secretName: vm-secret-1
-            propagationMethod:
-              configDrive: {}
       volumes:
         - name: rootdisk
           persistentVolumeClaim:
-            claimName: vm-1-pvc
+            claimName: vm-2-pvc
         - name: cloudinit
           cloudInitConfigDrive:
             userData: |-
